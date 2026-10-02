@@ -15,10 +15,18 @@ Route::get('/test', function () {
         'message' => 'Laravel API is working!',
     ]);
 });
+
+//CATEGORIES API
   Route::get('/categories', [CategoryController::class, 'index']);
   Route::post('/categories', [CategoryController::class, 'store']);
   Route::get('/categories/{id}', [CategoryController::class, 'show']);
   Route::patch('/categories/{id}', [CategoryController::class, 'edit']);
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
+
+// PRODUCTS API
   Route::get('/products', [ProductController::class, 'products']);
-  
+   Route::post('/products', [ProductController::class, 'storeProducts']);
+   Route::get('/products/{id}', [ProductController::class, 'getProduct']);
+   Route::patch('/products/{id}', [ProductController::class, 'updateProduct']);
+    Route::delete('/products/{id}', [ProductController::class, 'deleteProduct']);
+      

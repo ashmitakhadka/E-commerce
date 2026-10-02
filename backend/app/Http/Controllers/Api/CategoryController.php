@@ -27,10 +27,14 @@ class CategoryController extends Controller
     return response()->json($category);
   }
 
-  public function show($id){
-    return Category::findOrFail($id);
-  }
+  public function show($id)
+{
+    $category = Category::findOrFail($id);
 
+    $category->load('products');
+
+    return response()->json($category);
+}
   public function edit(Request $request, $id){
     $request->validate([
     'name'=> "required",

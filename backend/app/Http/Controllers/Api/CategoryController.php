@@ -12,4 +12,43 @@ class CategoryController extends Controller
 {
     return Category::all();
 }
+
+  public function store(Request $request){
+
+  $request->validate([
+    'name'=> "required",
+    'description' => 'nullable',
+  ]);
+    $category= Category::create([
+        'name'=> $request->name,
+        'description'=> $request->description,
+    ]);
+
+    return response()->json($category);
+  }
+
+  public function show($id){
+    return Category::findOrFail($id);
+  }
+
+  public function edit(Request $request, $id){
+    $request->validate([
+    'name'=> "required",
+    'description' => 'nullable',
+  ]);
+
+  $category = Category::findOrFail($id);
+  $category->update([
+      'name'=> $request->name,
+        'description'=> $request->description,
+  ]);
+
+  return response()->json($category);
+  }
+
+  public function destroy($id){
+     $category = Category::findOrFail($id);
+     $category->delete();
+      return response()->json("Category deleted successfully");
+  }
 }

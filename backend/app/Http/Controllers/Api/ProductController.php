@@ -37,7 +37,7 @@ class ProductController extends Controller
 
     public function getProduct($id){
         $product = Product::findOrFail($id);
-        $product->load('category');
+       // $product->load('category');
         return response()->json($product);
     }
 

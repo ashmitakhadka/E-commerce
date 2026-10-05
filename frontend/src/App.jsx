@@ -1,25 +1,15 @@
-import { useEffect, useState } from "react";
-import api from "./services/api";
+import { AuthProvider } from "../../../login_system/frontend/src/context/AuthContext";
+import { HomePage } from "./pages/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    api
-      .get("/test")
-      .then((response) => {
-        setMessage(response.data.message);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold">{message}</h1>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;

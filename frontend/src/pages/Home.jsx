@@ -1,3 +1,4 @@
+import { Category } from "../components/category";
 import { Footer } from "../components/footer";
 import { Hero } from "../components/hero";
 import { Navbar } from "../components/navbar";
@@ -7,6 +8,7 @@ export const HomePage = () => {
     <>
       <Navbar />
       <Hero />
+      <Category />
       <Footer />
     </>
   );

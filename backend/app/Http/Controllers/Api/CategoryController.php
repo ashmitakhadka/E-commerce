@@ -31,7 +31,7 @@ class CategoryController extends Controller
 {
     $category = Category::findOrFail($id);
 
-    $category->load('products');
+    //$category->load('products');
 
     return response()->json($category);
 }

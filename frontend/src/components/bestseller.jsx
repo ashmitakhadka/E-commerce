@@ -33,7 +33,7 @@ export const BestSeller = () => {
               <div className="flex items-center justify-between mt-4">
                 <p className="text-lg font-bold text-gray-900">$79.99</p>
 
-                <button className="bg-cyan-300 hover:bg-cyan-400 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
+                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
                   Add to Cart
                 </button>
               </div>
@@ -60,7 +60,7 @@ export const BestSeller = () => {
               <div className="flex items-center justify-between mt-4">
                 <p className="text-lg font-bold text-gray-900">$129.99</p>
 
-                <button className="bg-cyan-300 hover:bg-cyan-400 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
+                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
                   Add to Cart
                 </button>
               </div>
@@ -87,7 +87,7 @@ export const BestSeller = () => {
               <div className="flex items-center justify-between mt-4">
                 <p className="text-lg font-bold text-gray-900">$49.99</p>
 
-                <button className="bg-cyan-300 hover:bg-cyan-400 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
+                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
                   Add to Cart
                 </button>
               </div>
@@ -114,7 +114,7 @@ export const BestSeller = () => {
               <div className="flex items-center justify-between mt-4">
                 <p className="text-lg font-bold text-gray-900">$699.99</p>
 
-                <button className="bg-cyan-300 hover:bg-cyan-400 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
+                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
                   Add to Cart
                 </button>
               </div>

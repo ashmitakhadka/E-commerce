@@ -75,4 +75,9 @@ public function deleteProduct($id){
         "product"=> $product,
     ]);
 }
+
+public function getBestSellers()
+{
+    return Product::with('category')->take(4)->get();
+}
 }

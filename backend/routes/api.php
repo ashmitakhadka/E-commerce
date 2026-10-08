@@ -19,6 +19,7 @@ Route::get('/user', function (Request $request) {
 
 // PRODUCTS API
   Route::get('/products', [ProductController::class, 'products']);
+    Route::get('/best-sellers', [ProductController::class, 'getBestSellers']);
    Route::post('/products', [ProductController::class, 'storeProducts']);
    Route::get('/products/{id}', [ProductController::class, 'getProduct']);
    Route::patch('/products/{id}', [ProductController::class, 'updateProduct']);

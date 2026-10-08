@@ -7,7 +7,7 @@ export const BestSeller = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await api.get("/products");
+        const response = await api.get("/best-sellers");
         setProduct(response.data);
       } catch (error) {
         console.log(error);
@@ -37,7 +37,7 @@ export const BestSeller = () => {
               <div className="h-52 bg-gray-50 flex items-center justify-center">
                 <img
                   src={item.image}
-                  alt="Mechanical Keyboard"
+                  alt={item.name}
                   className="max-h-full max-w-full object-contain"
                 />
               </div>

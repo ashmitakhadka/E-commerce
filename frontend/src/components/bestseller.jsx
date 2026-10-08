@@ -98,7 +98,7 @@ export const BestSeller = () => {
           <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
             <div className="h-52 bg-gray-50 flex items-center justify-center">
               <img
-                src=""
+                src={null}
                 alt="Smartphone"
                 className="max-h-full max-w-full object-contain"
               />

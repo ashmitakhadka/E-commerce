@@ -1,4 +1,20 @@
+import { useEffect, useState } from "react";
+import api from "../services/api";
+
 export const BestSeller = () => {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await api.get("/products");
+        setProduct(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
   return (
     <section className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-6">
@@ -13,113 +29,40 @@ export const BestSeller = () => {
 
         {/* Product Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {/* Product 1 */}
-          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-52 bg-gray-50 flex items-center justify-center">
-              <img
-                src=""
-                alt="Mechanical Keyboard"
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
+          {product.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+            >
+              <div className="h-52 bg-gray-50 flex items-center justify-center">
+                <img
+                  src={item.image}
+                  alt="Mechanical Keyboard"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
 
-            <div className="p-5">
-              <p className="text-sm text-gray-500 mb-1">Electronics</p>
+              <div className="p-5">
+                <p className="text-sm text-gray-500 mb-1">
+                  {item.category?.name}
+                </p>
 
-              <h3 className="text-lg font-semibold text-gray-900">
-                Mechanical Keyboard
-              </h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.name}
+                </h3>
 
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-lg font-bold text-gray-900">$79.99</p>
+                <div className="flex items-center justify-between mt-4">
+                  <p className="text-lg font-bold text-gray-900">
+                    {item.price}
+                  </p>
 
-                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
-                  Add to Cart
-                </button>
+                  <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Product 2 */}
-          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-52 bg-gray-50 flex items-center justify-center">
-              <img
-                src=""
-                alt="Wireless Headphones"
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-
-            <div className="p-5">
-              <p className="text-sm text-gray-500 mb-1">Audio</p>
-
-              <h3 className="text-lg font-semibold text-gray-900">
-                Wireless Headphones
-              </h3>
-
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-lg font-bold text-gray-900">$129.99</p>
-
-                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 3 */}
-          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-52 bg-gray-50 flex items-center justify-center">
-              <img
-                src=""
-                alt="Gaming Mouse"
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-
-            <div className="p-5">
-              <p className="text-sm text-gray-500 mb-1">Gaming</p>
-
-              <h3 className="text-lg font-semibold text-gray-900">
-                Gaming Mouse
-              </h3>
-
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-lg font-bold text-gray-900">$49.99</p>
-
-                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 4 */}
-          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-52 bg-gray-50 flex items-center justify-center">
-              <img
-                src={null}
-                alt="Smartphone"
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-
-            <div className="p-5">
-              <p className="text-sm text-gray-500 mb-1">Smartphones</p>
-
-              <h3 className="text-lg font-semibold text-gray-900">
-                Smartphone
-              </h3>
-
-              <div className="flex items-center justify-between mt-4">
-                <p className="text-lg font-bold text-gray-900">$699.99</p>
-
-                <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

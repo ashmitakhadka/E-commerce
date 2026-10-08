@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function products(){
-        return Product::all();
+        return Product::with('category')->get();
     }
 
     public function storeProducts(Request $request){

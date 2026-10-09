@@ -38,7 +38,7 @@ export const BestSeller = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="max-h-full max-w-full object-contain"
+                  className="h-full w-full object-contain p-5"
                 />
               </div>
 
